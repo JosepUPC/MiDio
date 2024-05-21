@@ -5,8 +5,8 @@
 #include <ArduinoJson.h>
 
 // name and password of the internet conection you wanna made
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "Nautilus";
+const char* password = "20000Leguas";
 
 // configurate the connection with the google cloud Services
 const char* prID = "project_id";
