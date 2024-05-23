@@ -1,8 +1,10 @@
 #include "translateService.h"
 #include <WiFi.h>
 
+TranslateService::TranslateService(){}
+
 // Function to connect to WiFi
-void setupWiFi(const char* ssid, const char* password) {
+void TranslateService::setupWiFi(const char* ssid, const char* password) {
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
@@ -12,7 +14,7 @@ void setupWiFi(const char* ssid, const char* password) {
 }
 
 // Function to send a request to the Google Cloud Speech-to-Text API
-String sendSpeechToTextRequest(WiFiClientSecure &client, const char* accessToken, const char* originalLanguage, const String& audioData) {
+String TranslateService::sendSpeechToTextRequest(WiFiClientSecure &client, const char* accessToken, const char* originalLanguage, const String& audioData) {
   if (!client.connect("speech.googleapis.com", 443)) {
     Serial.println("Connection to Speech-to-Text API failed");
     return "";
@@ -52,7 +54,7 @@ String sendSpeechToTextRequest(WiFiClientSecure &client, const char* accessToken
 }
 
 // Function to translate text using Google Cloud Translation API
-String translateText(WiFiClientSecure &client, const char* accessToken, const char* originalLanguage, const char* targetLanguage, const String& text) {
+String TranslateService::translateText(WiFiClientSecure &client, const char* accessToken, const char* originalLanguage, const char* targetLanguage, const String& text) {
   if (!client.connect("translation.googleapis.com", 443)) {
     Serial.println("Connection to Translation API failed");
     return "";
@@ -92,7 +94,7 @@ String translateText(WiFiClientSecure &client, const char* accessToken, const ch
 }
 
 // Function to send a request to the Google Cloud Text-to-Speech API
-void sendTextToSpeechRequest(WiFiClientSecure &client, const char* accessToken, const char* targetLanguage, const String& text) {
+void TranslateService::sendTextToSpeechRequest(WiFiClientSecure &client, const char* accessToken, const char* targetLanguage, const String& text) {
   if (!client.connect("texttospeech.googleapis.com", 443)) {
     Serial.println("Connection to Text-to-Speech API failed");
     return;
@@ -134,7 +136,7 @@ void sendTextToSpeechRequest(WiFiClientSecure &client, const char* accessToken, 
 }
 
 // Function to decode and play the base64 encoded audio
-void playAudio(const char* audioContent) {
+void TranslateService::playAudio(const char* audioContent) {
   // TODO: Implement audio playback
   // You will need to decode the base64 audio content and send it to the DAC or audio output of the ESP32-S3
   Serial.println("Received audio content. Implement playback here.");
