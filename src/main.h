@@ -1,12 +1,12 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef SERVICEMANAGER_H
+#define SERVICEMANAGER_H
 
 #include <translateService.h>
 #include <WiFiClientSecure.h>
 
-class MainClass {
+class serviceManager {
 public:
-    MainClass ();
+    serviceManager ();
     void begin();
     void SetupTaskCreat();
 
@@ -17,4 +17,4 @@ private:
     static void processAudioTask(void *pvParameters);
 };
 
-#endif // TRANSLATEMANAGER_H
+#endif // SERVICEMANAGER_H
