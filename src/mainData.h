@@ -23,4 +23,4 @@
 #define ORIGINAL_LANGUAGE "en-US" // Example: English (US)
 #define TARGET_LANGUAGE "es" // Example: Spanish
 
-#endif // CONFIG_H
+#endif // MAINDATA_H
