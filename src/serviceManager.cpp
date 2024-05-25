@@ -1,15 +1,15 @@
-#include "main.h"
+#include "serviceManager.h"
 #include <Arduino.h>
 #include <mainData.h>
 
-MainClass::MainClass() : translateService(), client() {}
+serviceManager::serviceManager() : translateService(), client() {}
 
-void MainClass::begin() {
+void serviceManager::begin() {
     Serial.begin(115200);
     translateService.setupWiFi(WIFI_SSID, WIFI_PASSWORD);
 }
 
-void MainClass::SetupTaskCreat() {
+void serviceManager::SetupTaskCreat() {
     xTaskCreate(
         processAudioTask,    // Function that implements the task
         "ProcessAudioTask",  // Task name
@@ -20,8 +20,8 @@ void MainClass::SetupTaskCreat() {
     );
 }
 
-void MainClass::processAudioTask(void *pvParameters) {
-    MainClass* manager = static_cast<MainClass*>(pvParameters);
+void serviceManager::processAudioTask(void *pvParameters) {
+    MainClass* manager = static_cast<serviceManager*>(pvParameters);
     for(;;) {
         // Replace with actual base64 encoded audio data
         String audioData = "<base64_encoded_audio_data>";
