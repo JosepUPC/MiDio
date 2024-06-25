@@ -1,8 +1,0 @@
-MiDio_Bridge
-Z5MLK2pXxDQfNbc
-
-Deplyment Name: "deployment-f66eae81"
-Cloud Platform: "Google Cloud"
-Region: "Iowa (us-central1)"
-
-Rest API: https://f66eae81.ala.dedicated.gcp.emqxcloud.com:8443/api/v5/
