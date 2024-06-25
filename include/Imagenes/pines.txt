@@ -1,0 +1,41 @@
+about the SWITCH handle of the loop i add some modifications:
+
+// more constants that tell us if the funtions are active or not
+bool load = 0;
+bool reproduce = 0;
+bool clean = 0;
+
+// inside the loop as an exemple
+    bool switch1_currentState = digitalRead(SWITCH1_PIN);
+    bool switch2_currentState = digitalRead(SWITCH2_PIN);
+
+    if (switch1_currentState != switch1_lastState){
+        if (reproduce == 1){
+            Serial.print("readNextFileFromSD()");
+        }
+        else{
+            if(switch1_currentState == HIGH){
+                load = 1;
+                Serial.print("writeFileToSD()");
+            }
+            else
+                load = 0;
+                clean = 0;
+        }
+        switch1_lastState = switch1_currentState;
+    }
+    if (switch2_currentState != switch2_lastState){
+        if (load == 1){
+            if (switch2_currentState = HIGH && !clean)
+                Serial.print("cleanSD()");
+                clean = 1;
+        }
+        else{
+            if(switch2_currentState == HIGH){
+                reproduce = 1;
+                Serial.print("readFileFromSD()");
+            }
+            else
+                reproduce = 0;
+        }
+    }

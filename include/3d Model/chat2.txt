@@ -1,0 +1,33 @@
+indeed, let me explain the situation and let's see how we can break the points. 
+I already started a platformio project called "MicroSD_test" with an Esp32 Board on arduino framework. 
+I connected a MicroSD adapter and 2 switches with the next pins.
+
+MicroSD Adapater
+
+	- GND : GND
+	- VCC : 3V3
+	- MISO : GPIO19
+	- MOSI: GPIO18
+	- SCK: GPIO17
+	- CS: GPIO5
+
+Switches
+
+	- Switch #1 : 34
+	- Switch #2 : 35
+
+My goal is simple, i wanna created a close system with the sd and the filesystem that allows me to
+save messatges and stream them with the Serial monitor of visual studio using the switches. More accurate, i need a few functions to
+archive this goal:
+
+	1 - the system behind in pause, without any action. all switches are down.
+	2 - when the switch 1 Pull UP when the switch #2 is OFF, a buffer save a messatge like "file 1" and it put into a file on the SD. Notice that if the switch don't Pull down, the system stay's pause.
+	Everytime the switch 1 Pulls up, it created a new file with it's messatge. If the Sd archive a certain number of files like 20, it starts rewriting the frist file of the sd memory, creating a close loop.
+	If the switch 2 Pull up when the switch 1 is On, the SD is clean full.
+	3 - For other side, if the switch 1 Pulls up when the switch 1 is OFF, it sends the frist messatge of the SD. Notice that if the switch don't Pull down, the system stay in pause.
+	If the switch 1 pulls up when the switch 2 is on, it opens the next file of the system and send it into the serial monitor. if we archive the last file of the sd, when restart reading the frist file, creating a close loop
+
+Here's a more accurate instructions:
+
+	1- the System starts off, without action. All switches must be down, or nothing can happend
+	2- if we pull up the switch #1 when the switch #2 is off, we behind the recording funtion: save a messatge like "file one" in

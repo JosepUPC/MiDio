@@ -1,0 +1,26 @@
+I wanna do a visual squeme of a esp32 project with switches, components and cables. But i don't know how connect them correctly. Let me explain:
+
+1 - Esp32 board
+2 - MicroSD Card Adapter
+3- Switch x4
+4 - Red led x3, Green led
+5 - MicroController MAX98357A
+6 - Simple speaker with Vss and GND
+7 - Microphone INMP441
+8 - Battery 1.5 Volts x4
+9 - SD of 32 Gb.
+10 - 5 meters of cable
+
+I wanna connect those comenents in order to:
+
+1- the battery must feed the esp32 board
+2- the leds must to check show if the swiches are on or off.
+3- the Speaker is connected at the Microcontroller
+4- choose the proper pins to connect the microphone, microcotroller, switches and MicroSD at the Esp32 board.
+5- I just need you to show me a proper way to connect every device. if you want, you can also add a c++ # define of every pin inside the esp32 main code. But i want the squeme of everything.
+6- if you think that i need to add some resistences, just tell me. if it's not, then don't add them.
+7- each switch is in array with one led to check if the switch is open or close
+8- take care to don't use the same pins with two diffrent connections
+
+Let's see what you can show me. 
+PD: take care the right/left side of the pins to organize the cables
